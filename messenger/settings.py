@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'messaging',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -98,7 +101,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTH_USER_MODEL = 'profiles.Profile'
+LOGIN_URL = '/login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

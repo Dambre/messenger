@@ -1,0 +1,10 @@
+{% extends 'profiles/base.html' %}
+
+{% block content %}
+<form action='{% url "profiles:login" %}' method='POST'>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="Login">
+</form>
+<a href="{% url 'profiles:signup' %}">Sign Up</a>
+{% endblock %}
