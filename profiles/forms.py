@@ -9,7 +9,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('email',)
+        fields = ('name', 'email',)
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -27,5 +27,12 @@ class UserCreationForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-field orange'
+
+    username = forms.EmailField(label='', widget=forms.TextInput(
+        attrs={'placeholder': 'Enter email adress'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={'placeholder': 'Enter password'}))

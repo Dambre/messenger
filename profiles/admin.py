@@ -14,7 +14,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('email', 'password', 'is_admin')
+        fields = ('name', 'email', 'password', 'is_admin')
 
     def clean_password(self):
         return self.initial["password"]
@@ -26,7 +26,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'is_admin')
     list_filter = ('is_admin',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {'fields': ('name', 'email', 'password')}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
     add_fieldsets = (

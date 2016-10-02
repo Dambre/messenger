@@ -1,0 +1,20 @@
+{% extends 'messaging/base.html' %}
+
+{% block content %}
+<div class='container'>
+    <div class="signup-form-wrapper">
+        <h1>Add Friend</h1>
+        
+        {% if error %}
+        <h3>{{ error }}</h3>
+        {% endif %}
+        <form action='{% url "new_friend" %}' class="send-message" id="add-friend" method="post">
+        {% csrf_token %}
+            {{form}}
+        </form>
+        <button class="button_100 orange" form="add-friend" type="submit">
+                Add Friend
+        </button>
+    </div>
+</div>
+{% endblock %}

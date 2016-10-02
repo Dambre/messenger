@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from .models import Contact, Conversation, Message
+from .models import Friendship, Conversation, Message
 
 
-admin.site.register(Contact)
+admin.site.register(Friendship)
 admin.site.register(Conversation)
-admin.site.register(Message)

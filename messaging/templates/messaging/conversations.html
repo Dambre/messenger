@@ -1,5 +1,35 @@
 {% extends 'messaging/base.html'%}
+{% load message_tags %}
 
 {% block content %}
-{{ conversations }}
+<div class="container">
+    <div class="signup-form-wrapper">
+        <h1>Messages</h1>
+        {% for conversation in conversations %}
+        {% if conversation.last_message %}
+        <div class="message-box row">
+            
+            {% if not conversation.seen %}
+            <div class="new-message-badge">New</div>
+            {% endif %}
+            
+            <div class="sender-wrapper">
+               <span class="sender">{{ conversation.senders }}</span>
+            </div>
+            <div class="message-wrapper"  url="{{ conversation.url }}">
+                
+                {% if not conversation.seen %}
+                <span class="message new">
+                {% else %}
+                <span class="message">
+                {% endif %}
+                
+                {% message_preview conversation.last_message %}</span> 
+                <button class="button_100 orange send-message-button" url="{{ conversation.reply_url }}">Reply</button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -1,9 +1,19 @@
 {% extends 'profiles/base.html' %}
 
 {% block content %}
-<form action='{% url "profiles:signup" %}' method='POST'>
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" name="Sign Up">
-</form>
+    <div class="container">
+        <div class="signup-form-wrapper">
+            <h1 class="coral">Sign Up for BasketFriends!</h1>
+            <h2>Please enter your details</h2>
+
+            <form action='{% url "profiles:signup" %}' id="signup-form" method="post">
+                {% csrf_token %}
+                {{form}}
+            </form>
+
+            <button class="button_100 coral" form="signup-form" type="submit">
+                Sign Up
+            </button>
+        </div>
+    </div>
 {% endblock %}

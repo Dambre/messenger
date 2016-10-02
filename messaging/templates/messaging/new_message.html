@@ -1,0 +1,19 @@
+{% extends 'messaging/base.html' %}
+
+{% block content %}
+<div class="container">
+        <div class="signup-form-wrapper">
+            <h1>Send Message</h1>
+            <h2>to {{ recipient }}</h2>
+
+            <form action='{{ new_message_url }}' class="send-message" id="send-message" method="post">
+                {% csrf_token %}
+                {{form}}
+
+            </form>
+            <button style="float:right;" class="button_100 orange" form="send-message" type="submit">
+                    Send Message
+            </button>
+        </div>
+    </div>
+{% endblock %}

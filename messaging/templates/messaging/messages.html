@@ -1,0 +1,31 @@
+{% extends 'messaging/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="signup-form-wrapper">
+        <h1>Conversation with {{ recipient }}</h1>
+        {% for message in messages %}
+        <div class="message-row">
+            {% if message.sender.email == request.user.email %}
+            <li class="conversation-entry self">
+            {% else %}
+            <li class="conversation-entry">
+            {% endif %}
+                {% if message.sender == request.user %}
+                You
+                {% else %}
+                {{ message.sender.name }}
+                {% endif %}
+                {% if not message.seen %}
+                <p class="chat-message bold">
+                {% else %}
+                <p class="chat-message">
+                {% endif %}
+                    {{ message.message }}
+                </p>
+            </li>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

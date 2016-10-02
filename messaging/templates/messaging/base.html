@@ -1,10 +1,43 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Messenger</title>
+    <!-- Reset.css reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings. -->
+    <link rel="stylesheet" type="text/css" href="{% static "messaging/css/reset.css" %}">
+    <!-- Main CSS file with theme -->
+    <link rel="stylesheet" type="text/css" href="{% static "messaging/css/style.css" %}">
+    <!-- Open Sans font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Font awesome fonts -->
+    <script src="https://use.fontawesome.com/544891cd4e.js"></script>   
+
 </head>
 <body>
-{% block content %}{% endblock %}
-<a href="{% url 'profiles:logout' %}">Log out</a>
+    <header>
+        <nav class="navbar loged-in">
+            <ul class="menu-left">
+                <li>
+                     <a class="active" href="{% url 'messages' %}">Messages</a>
+                </li>
+                <li>
+                    <a href="{% url 'friends' %}">Friends</a>
+                </li>
+                <li>
+                    <a href="{% url 'new_friend' %}">Add friend</a>
+                </li>
+            </ul>
+            <ul class="menu-right">
+                <li>
+                    <a href="{% url 'profiles:logout' %}">Log out</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
+    <script src="{% static "messaging/js/jquery.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "messaging/js/scripts.js" %}" type="text/javascript"></script>
+    {% block javascript %}{% endblock %}
 </body>
 </html>

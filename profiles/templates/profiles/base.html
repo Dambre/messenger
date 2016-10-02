@@ -1,9 +1,29 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Messenger Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <!-- Reset.css reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings. -->
+    <link rel="stylesheet" type="text/css" href="{% static "messaging/css/reset.css" %}">
+    <!-- Main CSS file with theme -->
+    <link rel="stylesheet" type="text/css" href="{% static "messaging/css/style.css" %}">
+    <!-- Open Sans font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-{% block content %}{% endblock%}
+    <header>
+        <nav class="navbar">
+                <ul class="menu-right">
+                    <li>
+                        <a class="active" href="{% url 'profiles:login' %}">Login</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'profiles:signup' %}">Sign Up</a>
+                    </li>
+                </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
 </body>
 </html>
