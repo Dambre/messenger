@@ -6,6 +6,6 @@ register = template.Library()
 
 @register.simple_tag
 def message_preview(message):
-    if len(message) > 30:
-        return message[:30] + '...'
+    if len(message) > 50:
+        return message[:50] + '...'
     return message

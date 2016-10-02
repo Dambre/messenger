@@ -13,6 +13,7 @@ I have made some design changes because there was a lack of some mockups of page
 There are things that I did not do (to meet production requirements) due to my tight schedule :/ But I can assure you I am capable of doing them :)
 
 Things to add or improve:
+    * Responsive design compatibility with more mobile phones (now its best for high rez phones or tablets :( )
     * Unit tests
     * Some views
     * Real time messages page updates with AJAX

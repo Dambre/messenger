@@ -24,7 +24,7 @@ class NewMessageForm(forms.ModelForm):
 class NewFriendForm(forms.Form):
     email = forms.EmailField(label='', widget=forms.TextInput(
         attrs={
-            'placeholder': 'Enter email address',
+            'placeholder': 'Enter email address here',
             'class': 'form-field textarea orange',
             'rows': 1,
             'cols': 50

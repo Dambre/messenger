@@ -1,7 +1,6 @@
 {% extends 'messaging/base.html'%}
 
 {% block content %}
-<div class="container">
         <div class="signup-form-wrapper">
             <h1>Friends</h1>
             {% for friend in friends %}
@@ -9,17 +8,14 @@
                 <div class="sender-wrapper">
                    <span class="sender">{{ friend.name }}</span>
                 </div>
-                <div style="float:right; line-height: 72px;">
-                    <button class="button_50 orange send-message-button" url="{{ friend.conversation }}">
+                <div class="friends-button">
+                    <button class="button_50 orange send-message-button" url="{{ friend.conversation }}" form="send-message" type="submit">
                     Send Message
                     </button>
                     <a href="{{ friend.delete_url }}" class="fa fa-times" aria-hidden="true" style="margin: 5px;"></a>
-                    </form>
                 </div>
-
             </div>
             {% endfor %}
         </div>
-    </div>
 {% endblock %}
 

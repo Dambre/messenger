@@ -15,13 +15,12 @@ body {
     content: "";
     clear: both;
     display: block;
-    margin: 4px;
 }
-.message-row::after{
+.message-row::after {
     content: "";
     clear: both;
     display: block;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 h1 {
     font-weight: 700;
@@ -51,8 +50,7 @@ a {
     color: #ff6f2e;
 }
 .active {
-    /*color: #ff6f2e;*/
-    color: #3ab3b7;
+    color: #ff6f2e;
 }
 .gray {
     color: #555;
@@ -130,7 +128,7 @@ button.orange:hover {
 /* Sign Up Form Begin */
 
 .signup-form-wrapper {
-    width: 600px;
+    max-width: 600px;
     margin: 72px auto;
 }
 
@@ -160,7 +158,7 @@ nav {
 }
 nav>ul>li {
     display: inline;
-    padding: 27px 12px;
+    padding: 24px 8px;
 }
 
 /* Navbar End */
@@ -171,28 +169,37 @@ nav>ul>li {
 .message-box {
     border: 3px solid #dce7e8;
     margin: 24px 0;
+    display: table;
     position: relative;
+    width: 100%;
+}
+.message-box.table{
+    display: table;
 }
 .message-box.friends {
     padding: 0px 12px;
+    margin: 0;
     margin-top: -2px;
     margin-bottom: -2px;
 }
 .sender-wrapper {
     line-height: 72px;
     width: 30%;
-    float: left;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
 }
 .message-wrapper {
     background-color: #dce7e8;
     padding: 24px;
-    float: left;
-    width: 70%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+
 }
 .message {
     display: block;
     padding: 12px 0;
-    word-wrap: break-word;
 }
 .message.new {
     font-weight: 700;
@@ -217,6 +224,15 @@ nav>ul>li {
 }
 textarea.form-field.textarea {
     width: 100%;
+}
+
+.button-table{
+    display: table-cell; vertical-align: middle; background-color: #dce7e8; padding: 0px 12px;
+}
+
+.friends-button{
+    float:right;
+    line-height: 72px;
 }
 
 /* Messages End */
@@ -252,11 +268,22 @@ textarea.form-field.textarea {
     .sender-wrapper {
         line-height: 72px;
         width: 100%;
+        display: block;
     }
     .message-wrapper {
         background-color: #dce7e8;
         padding: 24px;
         width: 100%;
+        display: block;
+    }
+    .button-table{
+        display: block;
+        vertical-align: middle;
+        background-color: #dce7e8;
+        padding: 12px 0px;
+    }
+    .friends-button{
+        float:unset;
     }
 }
 
@@ -306,6 +333,7 @@ textarea.form-field.textarea {
 .conversation-entry {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     max-width: 100%;
 }
 .conversation-entry.self {
@@ -319,23 +347,24 @@ textarea.form-field.textarea {
     padding: 12px;
     word-wrap: break-word;
 }
-.bold {
+.chat-message.bold {
     font-weight: 700;
 }
 .chat-message::before {
     position: absolute;
     right: auto;
-/*    bottom: .2em;*/
-    left: -20px;
+    bottom: .6em;
+    left: -12px;
     height: 0;
     content: '';
-    border: 10px solid transparent;
+    border: 6px solid transparent;
     border-right-color: #dce7e8;
 }
 .conversation-entry.self>.chat-message::before {
-    right: -20px;
+    right: -12px;
+    bottom: .6em;
     left: auto;
-    border: 10px solid transparent;
+    border: 6px solid transparent;
     border-left-color: #eee;
 }
 .conversation-entry.self>.chat-message {
